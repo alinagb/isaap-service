@@ -1,0 +1,16 @@
+
+`	java:S112J"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112["FDefine and throw a dedicated exception instead of using a generic one.(†·á±þÿÿÿÿ
+`	java:S112m"FDefine and throw a dedicated exception instead of using a generic one.(Íü Ñúÿÿÿÿ
+`	java:S112h"FDefine and throw a dedicated exception instead of using a generic one.(Ú³œ€üÿÿÿÿ
+W
+java:S1075,"ARefactor your code to get this URI from a customizable parameter.(¿à¼ß
+[
+java:S1124,"EReorder the modifiers to comply with the Java Language Specification.(¿à¼ß
+Q	java:S1256"<This block of commented-out lines of code should be removed.(ïþÇ 
+V	java:S125>"<This block of commented-out lines of code should be removed.(ÚýÊíüÿÿÿÿ
+<
+java:S1075B"&Remove this hard-coded path-delimiter.(©ƒ›
+N	java:S106G"9Replace this use of System.out or System.err by a logger.(…¬ûŒ
+V
+java:S1128"9Remove this unused import 'isapp.model.UserFavoritePost'.(Ã’Ëû8êßûø’0

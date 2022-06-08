@@ -1,0 +1,14 @@
+
+g	java:S112%"FDefine and throw a dedicated exception instead of using a generic one.(Œö£…þÿÿÿÿ8·âº÷’0
+Ž
+java:S1130%"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(Œö£…þÿÿÿÿ8Òâº÷’0
+V	java:S125&"<This block of commented-out lines of code should be removed.(©ïŽ³úÿÿÿÿ
+]	java:S125:"<This block of commented-out lines of code should be removed.(©ïŽ³úÿÿÿÿ8’¯ëó’0
+:
+java:S3751A"Make this method non "private".(ñ„Êøÿÿÿÿ
+<
+java:S1075B"&Remove this hard-coded path-delimiter.(ôÉ™‹
+q
+java:S1128"ORemove this unused import 'com.fasterxml.jackson.core.JsonProcessingException'.(ßÔïÇûÿÿÿÿ8û¯–ø’0
+V
+java:S1128"9Remove this unused import 'isapp.model.UserFavoritePost'.(Ã’Ëû8Á¤øø’0

@@ -1,0 +1,39 @@
+server:
+  port : 8090
+spring:
+  servlet:
+    multipart:
+      max-file-size: 128MB
+      max-request-size: 128MB
+  profiles:
+    active: default
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8080/auth/realms/ISAPP/protocol/openid-connect/certs
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: alina
+    password: alina
+    driverClassName: org.postgresql.Driver
+  flyway:
+    datasource:
+      locations: classpath:/db/migration
+      baseline-on-migrate: false
+      validate-on-migrate: true
+
+ps-ui:
+  url: "http://localhost:3000/"
+  registration-success:
+    url: "http://localhost:3000/confirm"
+
+keycloak:
+  url: "http://localhost:8080/auth"
+  realm: "ISAPP"
+  user: "isapp@mail.com"
+  password: "admin"
+  client-id: "isapp-ui"

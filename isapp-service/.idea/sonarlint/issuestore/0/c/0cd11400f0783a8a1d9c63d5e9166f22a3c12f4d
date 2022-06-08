@@ -1,0 +1,7 @@
+
+–
+java:S11867"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(øþ±,
+Q	java:S125*"<This block of commented-out lines of code should be removed.(îÜùÌ
+Q	java:S125-"<This block of commented-out lines of code should be removed.(†ËÔý
+V
+java:S1128"9Remove this unused import 'isapp.model.UserFavoritePost'.(Ã’Ëû8©¿œù’0
