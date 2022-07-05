@@ -1,10 +1,8 @@
 package isapp.controller;
 
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import isapp.model.Post;
-import isapp.model.UserFavoritePost;
 import isapp.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -63,7 +61,7 @@ public class PostController {
 
     @GetMapping(value= "/image/{userId}/{fileId}", produces = org.springframework.http.MediaType.IMAGE_JPEG_VALUE)
     private ResponseEntity<byte[]> getFile(@PathVariable UUID userId, @PathVariable UUID fileId, HttpServletResponse response) throws IOException {
-        String pathname = "/Users/albica/Desktop/disertatie/isapp-service/src/main/resources/static/images/postImages/" + userId + "/"+fileId+".png";
+        String pathname = "/Users/albica/Desktop/disertatie/isaap-service/isapp-service/src/main/resources/static/images/postImages/" + userId + "/"+fileId+".png";
         File file = ResourceUtils.getFile(pathname);
         byte[] array = method(file);
 
@@ -73,4 +71,19 @@ public class PostController {
                 .body(array);
     }
 
+    @GetMapping("/rooms/{noRooms}")
+    public ResponseEntity<List<Post>> getPostsByRooms(@PathVariable int noRooms){
+
+        return ResponseEntity.status(HttpStatus.OK).body(postService.getPostsByNoRooms(noRooms));
+    }
+
+    @GetMapping("/price/{price}")
+    public ResponseEntity<List<Post>> getPostsByPrice(@PathVariable long price) {
+        return ResponseEntity.status(HttpStatus.OK).body(postService.getPostsByPrice(price));
+    }
+
+    @GetMapping("/faculty/{faculty}")
+    public ResponseEntity<List<Post>> getPostsByFaculty(@PathVariable String faculty) {
+        return ResponseEntity.status(HttpStatus.OK).body(postService.getPostsByFaculty(faculty));
+    }
 }

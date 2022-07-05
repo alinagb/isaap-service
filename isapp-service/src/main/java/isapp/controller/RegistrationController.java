@@ -2,9 +2,7 @@ package isapp.controller;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.primitives.Bytes;
 import isapp.model.Post;
-import isapp.model.UserFavoritePost;
 import isapp.model.user.User;
 import isapp.service.RegistrationService;
 import org.slf4j.Logger;
@@ -27,21 +25,17 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/registration")
@@ -91,7 +85,7 @@ public class RegistrationController {
 
     @GetMapping(value= "/profile/{id}", produces = org.springframework.http.MediaType.IMAGE_JPEG_VALUE)
     private ResponseEntity<byte[]> getFile(@PathVariable UUID id, HttpServletResponse response) throws IOException {
-        String pathname = "/Users/albica/Desktop/disertatie/isapp-service/src/main/resources/static/images/profile/" + id + ".png";
+        String pathname = "/Users/albica/Desktop/disertatie/isaap-service/isapp-service/src/main/resources/static/images/profile/" + id + ".png";
         File file = ResourceUtils.getFile(pathname);
         byte[] array = method(file);
 

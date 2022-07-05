@@ -1,10 +1,12 @@
 package isapp.service;
 
 import isapp.model.Faculty;
+import isapp.model.FacultyPost;
 import isapp.model.FileRequest;
 import isapp.model.Post;
 import isapp.model.UserFavoritePost;
 import isapp.model.user.User;
+import isapp.repository.FacultyPostRepository;
 import isapp.repository.FacultyRepository;
 import isapp.repository.FileRepository;
 import isapp.repository.PostRepository;
@@ -16,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -41,7 +44,10 @@ public class PostService {
     @Autowired
     private FileRepository fileRepository;
 
-    private final static String PATH = "/Users/albica/Desktop/disertatie/isapp-service/src/main/resources/static/images/postImages/";
+    @Autowired
+    private FacultyPostRepository facultyPostRepository;
+
+    private final static String PATH = "/Users/albica/Desktop/disertatie/isaap-service/isapp-service/src/main/resources/static/images/postImages/";
 
 
     public Post createPost(MultipartFile[] files, Post post, UUID userId) throws Exception {
@@ -98,6 +104,8 @@ public class PostService {
         postCreated.setDescription(post.getDescription());
         postCreated.setPrice(post.getPrice());
         postCreated.setTitle(post.getTitle());
+        postCreated.setNoRooms(post.getNoRooms());
+
         return postRepository.save(postCreated);
     }
 
@@ -116,4 +124,36 @@ public class PostService {
     }
 
 
+    public List <Post> getPostsByNoRooms(int noRooms) {
+        return postRepository.findByNoRooms(noRooms);
+    }
+
+    public List <Post> getPostsByPrice(long price) {
+        return postRepository.findByPrice(price);
+    }
+
+    public List <Post> getPostsByFaculty(String faculty) {
+        Optional<List<FacultyPost>> byFacultyContains = facultyPostRepository.findByFacultyContainingIgnoreCase(faculty);
+        List<Post> posts = new ArrayList<>();
+
+        if(byFacultyContains.isPresent()){
+            for(FacultyPost facultyPost:  byFacultyContains.get()){
+                Post post = new Post();
+
+                post.setPostId(facultyPost.getPost().getPostId());
+//                post.setFacultySet(facultyPost.getPost().getFacultySet());
+                post.setDescription(facultyPost.getPost().getDescription());
+                post.setNoRooms(facultyPost.getPost().getNoRooms());
+                post.setLat(facultyPost.getPost().getLat());
+                post.setLng(facultyPost.getPost().getLng());
+                post.setTitle(facultyPost.getPost().getTitle());
+                post.setMainPhoto(facultyPost.getPost().getMainPhoto());
+                post.setOwner(facultyPost.getPost().getOwner());
+                post.setPrice(facultyPost.getPost().getPrice());
+                posts.add(post);
+
+            }
+        }
+        return posts;
+    }
 }

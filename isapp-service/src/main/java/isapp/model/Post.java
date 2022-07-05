@@ -52,7 +52,7 @@ public class Post {
     private long price;
     private String title;
 
-
+    private int noRooms;
     public UUID getPostId() {
         return postId;
     }
@@ -149,5 +149,11 @@ public class Post {
         this.title = title;
     }
 
+    public int getNoRooms() {
+        return noRooms;
+    }
 
+    public void setNoRooms(int noRooms) {
+        this.noRooms = noRooms;
+    }
 }

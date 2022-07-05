@@ -95,10 +95,9 @@ public class RegistrationService {
             userUpdated.setPhone(user.getPhone());
             userUpdated.setFacultyId(user.getFacultyId());
             userUpdated.setDescription(user.getDescription());
-            String pathname = "/Users/albica/Desktop/disertatie/isapp-service/src/main/resources/static/images/profile/" + userBD.get().getUserId() + "." + FilenameUtils.getExtension(file.getOriginalFilename());
+            String pathname = "/Users/albica/Desktop/disertatie/isaap-service/isapp-service/src/main/resources/static/images/profile/" + userBD.get().getUserId() + "." + FilenameUtils.getExtension(file.getOriginalFilename());
 
             if (userBD.get().getProfilePhoto() != null) {
-//                new ClassPathResource("/images/profile/" + userBD.get().getUserId() + "." + FilenameUtils.getExtension(file.getOriginalFilename())).getFile().delete();
                 try{
                     boolean result = Files.deleteIfExists(Paths.get(pathname)); //surround it in try catch block
                     if(result){

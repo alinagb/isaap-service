@@ -30,7 +30,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/posts/image/{userId}/{fileId}").permitAll()
                 .antMatchers(HttpMethod.GET, "/posts").permitAll()
                 .antMatchers(HttpMethod.GET, "/posts/{postId}").permitAll()
-
+                .antMatchers(HttpMethod.GET, "/posts/rooms/{noRooms}").permitAll()
+                .antMatchers(HttpMethod.GET, "/posts/price/{price}").permitAll()
+                .antMatchers(HttpMethod.GET, "/posts/faculty/{faculty}").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
